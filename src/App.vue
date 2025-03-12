@@ -6,7 +6,7 @@ import TheHeaderVue from './components/nav/TheHeader.vue'
 <template>
   <TheHeaderVue />
 
-  <!-- <RouterView /> -->
+  <RouterView />
 </template>
 
 <style scoped>
