@@ -11,23 +11,31 @@
           <li>Customer Supports</li>
         </ul>
       </nav>
-      <div class="flex items-center">
+      <div class="flex items-center space-x-2">
+        <!-- BiTelephone -->
+        <v-icon name="bi-telephone" class="icon" color="#000" scale="1" />
         <p>+62 832 4562 7890</p>
       </div>
     </div>
   </header>
   <div class="py-5 flex items-center justify-between container-custom">
     <div class="flex items-center space-x-8">
-      <p class="text-2xl font-semibold">Jobseeker</p>
-      <div class="flex items-center space-x-3 border border-[#E4E5E8] py-[9px] px-6 w-[600px]">
-        <div class="border-r pr-2 py-1">
+      <div class="flex items-center space-x-2">
+        <v-icon name="fa-suitcase" class="icon" color="#0A65CC" scale="2" />
+        <p class="text-2xl font-semibold">Jobseeker</p>
+      </div>
+      <div
+        class="flex items-center space-x-3 border border-[#E4E5E8] py-[9px] px-6 w-[600px] rounded-s-md"
+      >
+        <div class="border-r pr-2 py-1 border-[#E4E5E8]">
           <select id="country" name="country" v-model="country" class="focus:outline-none">
             <option value="indonesia">Indonesia</option>
             <option value="england">England</option>
           </select>
         </div>
         <div class="flex items-center py-1 space-x-3 w-full">
-          <p>icon</p>
+          <v-icon name="bi-search" class="icon" color="#0066FF" scale="1" />
+
           <input placeholder="Job tittle, keyword, company" class="focus:outline-none w-full" />
         </div>
       </div>
