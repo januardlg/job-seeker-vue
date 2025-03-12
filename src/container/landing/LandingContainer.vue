@@ -1,64 +1,20 @@
 <template>
-  <HeroLandingVue>
-    <div class="grid grid-cols-2 items-center">
-      <div class="space-y-6">
-        <div>
-          <p class="text-[56px]/14">
-            Find a job that suits <br />
-            your interest & skills.
-          </p>
-          <p class="mt-6 text-[#5E6670] text-lg">
-            Some life is ugly in the diam of the valley at the ends of the laughter. <br />
-            No one is in the scelerisque lion, he wants to be a bestiary.
-          </p>
-        </div>
-        <div class="mt-8 p-4 bg-white rounded-lg flex justify-between space-x-3">
-          <div :class="inputClass">
-            <v-icon name="bi-search" class="icon" color="#0066FF" scale="1" />
-            <input
-              placeholder="Job tittle, keyword, company"
-              class="focus:outline-none w-full truncate"
-            />
-          </div>
-          <div class="border-r border-[#F1F2F4] py-3" />
-          <div :class="inputClass">
-            <v-icon name="co-location-pin" class="icon" color="#0066FF" scale="1.3" />
-            <input placeholder="Your Location" class="focus:outline-none w-full" />
-          </div>
-          <TheButtonVue variant="primary">Find Job</TheButtonVue>
-        </div>
-        <div class="text-[#9199A3]">
-          <p>Suggestion : Designer, Programming, Video, Animation</p>
-        </div>
-      </div>
-
-      <div class="flex justify-end">
-        <img :src="landingIlustration" alt="landing-ilustration" />
-      </div>
-    </div>
-    <div class="grid grid-cols-4 gap-6 mt-[100px]">
-      <InfoItemVue
-        v-for="item in listItem"
-        :key="item.label"
-        :icon="item.icon"
-        :label="item.label"
-        :value="item.value"
-      ></InfoItemVue>
-    </div>
-  </HeroLandingVue>
+  <HeroLandingVue :listItem="listItem"> </HeroLandingVue>
+  <PopularVacanciesVue :listPopularVacancies="listPopularVacancies"></PopularVacanciesVue>
+  <JobApplyStepVue></JobApplyStepVue>
+  <PopularCategoryVue :listCategories="listCategories"></PopularCategoryVue>
 </template>
 
 <script>
 import HeroLandingVue from './component/HeroLanding.vue'
-import LandingIlustration from '../../assets/image/landing-ilustration.png'
-import TheButtonVue from '@/components/button/TheButton.vue'
-import InfoItemVue from './component/InfoItem.vue'
+import JobApplyStepVue from './component/JobApplyStep.vue'
+import PopularCategoryVue from './component/PopularCategory.vue'
+import PopularVacanciesVue from './component/PopularVacancies.vue'
 
 export default {
-  components: { HeroLandingVue, TheButtonVue, InfoItemVue },
+  components: { HeroLandingVue, PopularVacanciesVue, JobApplyStepVue, PopularCategoryVue },
   data() {
     return {
-      landingIlustration: LandingIlustration,
       listItem: [
         {
           icon: 'fa-suitcase',
@@ -81,12 +37,64 @@ export default {
           value: '7532',
         },
       ],
+      listPopularVacancies: [
+        { vacancy: 'Anesthesiologists', total: '45904' },
+        { vacancy: 'Surgeons', total: '50346' },
+        { vacancy: 'Obstetricians-Gynecologists', total: '45904' },
+        { vacancy: 'Orthodontists', total: '45904' },
+        { vacancy: 'Maxillofacial Surgeons', total: '45904' },
+        { vacancy: 'Psychiatrists', total: '515904' },
+        { vacancy: 'Data Scientist', total: '45904' },
+        { vacancy: 'Financial Manager', total: '45904' },
+        { vacancy: 'Software Developer', total: '45904' },
+        { vacancy: 'Management Analysis', total: '45904' },
+        { vacancy: 'IT Manager', total: '45904' },
+        { vacancy: 'Operations Research Analysis', total: '45904' },
+      ],
+      listCategories: [
+        {
+          icon: 'fa-suitcase',
+          label: 'Graphics & Design',
+          value: '175324',
+        },
+        {
+          icon: 'fa-suitcase',
+          label: 'Code & Programing',
+          value: '175324',
+        },
+        {
+          icon: 'fa-suitcase',
+          label: 'Digital Marketing',
+          value: '175324',
+        },
+        {
+          icon: 'fa-suitcase',
+          label: 'Video & Animation',
+          value: '175324',
+        },
+        {
+          icon: 'fa-suitcase',
+          label: 'Music & Audio',
+          value: '175324',
+        },
+        {
+          icon: 'fa-suitcase',
+          label: 'Account & Finance',
+          value: '175324',
+        },
+        {
+          icon: 'fa-suitcase',
+          label: 'Health & Care',
+          value: '175324',
+        },
+        {
+          icon: 'fa-suitcase',
+          label: 'Data & Science',
+          value: '175324',
+        },
+      ],
     }
   },
-  computed: {
-    inputClass() {
-      return 'flex items-center py-1 space-x-3'
-    },
-  },
+  computed: {},
 }
 </script>

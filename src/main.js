@@ -12,9 +12,24 @@ import {
   CoLocationPin,
   PxBuildings,
   RiGroupLine,
+  MdManageaccountsRound,
+  BiCloudUploadFill,
+  FaSearchPlus,
+  MdVerifiedSharp,
 } from 'oh-vue-icons/icons'
 
-addIcons(BiSearch, FaSuitcase, BiTelephone, CoLocationPin, PxBuildings, RiGroupLine)
+addIcons(
+  BiSearch,
+  FaSuitcase,
+  BiTelephone,
+  CoLocationPin,
+  PxBuildings,
+  RiGroupLine,
+  MdManageaccountsRound,
+  BiCloudUploadFill,
+  FaSearchPlus,
+  MdVerifiedSharp,
+)
 
 const app = createApp(App)
 app.component('v-icon', OhVueIcon)
