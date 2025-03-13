@@ -16,6 +16,14 @@ import {
   BiCloudUploadFill,
   FaSearchPlus,
   MdVerifiedSharp,
+  MdDesignservices,
+  HiSolidCode,
+  HiSpeakerphone,
+  MdOndemandvideoSharp,
+  LaMusicSolid,
+  RiBarChart2Fill,
+  MdHealthandsafetySharp,
+  HiDatabase,
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -29,6 +37,14 @@ addIcons(
   BiCloudUploadFill,
   FaSearchPlus,
   MdVerifiedSharp,
+  MdDesignservices,
+  HiSolidCode,
+  HiSpeakerphone,
+  MdOndemandvideoSharp,
+  LaMusicSolid,
+  RiBarChart2Fill,
+  MdHealthandsafetySharp,
+  HiDatabase,
 )
 
 const app = createApp(App)

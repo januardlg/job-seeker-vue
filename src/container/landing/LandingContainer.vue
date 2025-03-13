@@ -53,42 +53,42 @@ export default {
       ],
       listCategories: [
         {
-          icon: 'fa-suitcase',
+          icon: 'md-designservices',
           label: 'Graphics & Design',
           value: '175324',
         },
         {
-          icon: 'fa-suitcase',
+          icon: 'hi-solid-code',
           label: 'Code & Programing',
           value: '175324',
         },
         {
-          icon: 'fa-suitcase',
+          icon: 'hi-speakerphone',
           label: 'Digital Marketing',
           value: '175324',
         },
         {
-          icon: 'fa-suitcase',
+          icon: 'md-ondemandvideo-sharp',
           label: 'Video & Animation',
           value: '175324',
         },
         {
-          icon: 'fa-suitcase',
+          icon: 'la-music-solid',
           label: 'Music & Audio',
           value: '175324',
         },
         {
-          icon: 'fa-suitcase',
+          icon: 'ri-bar-chart-2-fill',
           label: 'Account & Finance',
           value: '175324',
         },
         {
-          icon: 'fa-suitcase',
+          icon: 'md-healthandsafety-sharp',
           label: 'Health & Care',
           value: '175324',
         },
         {
-          icon: 'fa-suitcase',
+          icon: 'hi-database',
           label: 'Data & Science',
           value: '175324',
         },
