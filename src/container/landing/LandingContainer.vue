@@ -3,16 +3,30 @@
   <PopularVacanciesVue :listPopularVacancies="listPopularVacancies"></PopularVacanciesVue>
   <JobApplyStepVue></JobApplyStepVue>
   <PopularCategoryVue :listCategories="listCategories"></PopularCategoryVue>
+  <FeaturedJobsVue></FeaturedJobsVue>
+  <TopComapinesVue></TopComapinesVue>
+  <AdvertisementSectionVue :listAdvertisement="listAdvertisement"></AdvertisementSectionVue>
 </template>
 
 <script>
+import AdvertisementSectionVue from './component/AdvertisementSection.vue'
+import FeaturedJobsVue from './component/FeaturedJobs.vue'
 import HeroLandingVue from './component/HeroLanding.vue'
 import JobApplyStepVue from './component/JobApplyStep.vue'
 import PopularCategoryVue from './component/PopularCategory.vue'
 import PopularVacanciesVue from './component/PopularVacancies.vue'
+import TopComapinesVue from './component/TopComapines.vue'
 
 export default {
-  components: { HeroLandingVue, PopularVacanciesVue, JobApplyStepVue, PopularCategoryVue },
+  components: {
+    HeroLandingVue,
+    PopularVacanciesVue,
+    JobApplyStepVue,
+    PopularCategoryVue,
+    FeaturedJobsVue,
+    TopComapinesVue,
+    AdvertisementSectionVue,
+  },
   data() {
     return {
       listItem: [
@@ -91,6 +105,20 @@ export default {
           icon: 'hi-database',
           label: 'Data & Science',
           value: '175324',
+        },
+      ],
+      listAdvertisement: [
+        {
+          imageName: 'become-candidate-adv',
+          title: 'Become a Candidate',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus a dolor convallis efficitur.',
+        },
+        {
+          imageName: 'become-employer-adv',
+          title: 'Become a Employers',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus a dolor convallis efficitur.',
         },
       ],
     }

@@ -2,7 +2,7 @@
   <div class="container-custom w-full bg-white py-[100px]">
     <div class="flex justify-between items-center">
       <p class="title-section">Popular category</p>
-      <p>View All</p>
+      <TheButtonVue variant="outline">View All</TheButtonVue>
     </div>
     <div class="mt-[50px] grid grid-cols-4 gap-6">
       <CategoryItemVue
@@ -19,9 +19,10 @@
 </template>
 
 <script>
+import TheButtonVue from '@/components/button/TheButton.vue'
 import CategoryItemVue from './CategoryItem.vue'
 export default {
-  components: { CategoryItemVue },
+  components: { CategoryItemVue, TheButtonVue },
   props: {
     listCategories: {
       type: Array,

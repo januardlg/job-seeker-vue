@@ -24,6 +24,12 @@ import {
   RiBarChart2Fill,
   MdHealthandsafetySharp,
   HiDatabase,
+  BiBookmark,
+  BiArrowRightShort,
+  CoFacebookF,
+  CoYoutube,
+  BiInstagram,
+  BiTwitter,
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -45,6 +51,12 @@ addIcons(
   RiBarChart2Fill,
   MdHealthandsafetySharp,
   HiDatabase,
+  BiBookmark,
+  BiArrowRightShort,
+  CoFacebookF,
+  CoYoutube,
+  BiInstagram,
+  BiTwitter,
 )
 
 const app = createApp(App)
