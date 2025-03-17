@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky top-0">
+  <div class="sticky top-0 z-50">
     <header class="bg-[#f1f2f4] py-3">
       <div class="w-full flex justify-between items-center container-custom">
         <nav>

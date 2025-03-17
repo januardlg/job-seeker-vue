@@ -5,6 +5,7 @@
   <PopularCategoryVue :listCategories="listCategories"></PopularCategoryVue>
   <FeaturedJobsVue></FeaturedJobsVue>
   <TopComapinesVue></TopComapinesVue>
+  <TestimonialSectionVue></TestimonialSectionVue>
   <AdvertisementSectionVue :listAdvertisement="listAdvertisement"></AdvertisementSectionVue>
 </template>
 
@@ -15,6 +16,7 @@ import HeroLandingVue from './component/HeroLanding.vue'
 import JobApplyStepVue from './component/JobApplyStep.vue'
 import PopularCategoryVue from './component/PopularCategory.vue'
 import PopularVacanciesVue from './component/PopularVacancies.vue'
+import TestimonialSectionVue from './component/TestimonialSection.vue'
 import TopComapinesVue from './component/TopComapines.vue'
 
 export default {
@@ -26,6 +28,7 @@ export default {
     FeaturedJobsVue,
     TopComapinesVue,
     AdvertisementSectionVue,
+    TestimonialSectionVue,
   },
   data() {
     return {

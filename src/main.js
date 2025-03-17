@@ -30,6 +30,9 @@ import {
   CoYoutube,
   BiInstagram,
   BiTwitter,
+  FaQuoteLeft,
+  BiStarFill,
+  FaUserCircle,
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -57,6 +60,9 @@ addIcons(
   CoYoutube,
   BiInstagram,
   BiTwitter,
+  FaQuoteLeft,
+  BiStarFill,
+  FaUserCircle,
 )
 
 const app = createApp(App)
