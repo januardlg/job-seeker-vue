@@ -43,6 +43,8 @@ import {
   MdEmailOutlined,
   CoLinkedinIn,
   HiLink,
+  IoCloseCircleOutline,
+  IoCloseCircle,
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -83,6 +85,8 @@ addIcons(
   MdEmailOutlined,
   CoLinkedinIn,
   HiLink,
+  IoCloseCircleOutline,
+  IoCloseCircle,
 )
 
 const app = createApp(App)

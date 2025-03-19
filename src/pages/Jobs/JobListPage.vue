@@ -18,12 +18,25 @@
           <input placeholder="Your Location" class="focus:outline-none w-full ml-3" />
         </div>
         <div class="flex justify-end p-1.5 space-x-3">
-          <button class="rounded-sm px-6 py-3 font-semibold cursor-pointer bg-[#F1F2F4]">
-            <div class="flex justify-between items-center space-x-3">
-              <v-icon name="gi-settings-knobs" class="icon" scale="1.5" color="#000000" />
-              <p>Filters</p>
+          <div>
+            <div class="drawer">
+              <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+              <label for="my-drawer" class="">
+                <span>
+                  <div
+                    class="flex justify-between items-center space-x-3 rounded-sm px-6 py-3 font-semibold cursor-pointer bg-[#F1F2F4]"
+                  >
+                    <v-icon name="gi-settings-knobs" class="icon" scale="1.5" color="#000000" />
+                    <p>Filters</p>
+                  </div>
+                </span>
+              </label>
+              <div class="drawer-side z-[100]">
+                <the-filter-drawer></the-filter-drawer>
+              </div>
             </div>
-          </button>
+          </div>
+
           <TheButtonVue variant="primary" @on-click-button="onClickButtonSearch"
             >Find Job</TheButtonVue
           >
@@ -40,9 +53,11 @@
 import TheBreadcrumbVue from '@/components/breadcrumb/TheBreadcrumb.vue'
 import TheButtonVue from '@/components/button/TheButton.vue'
 import TheJobsListVue from '@/container/jobs/jobs-list/TheJobsList.vue'
+import TheFilterDrawerVue from '@/container/jobs/jobs-list/components/TheFilterDrawer.vue'
+import TheFilterDrawer from '@/container/jobs/jobs-list/components/TheFilterDrawer.vue'
 
 export default {
-  components: { TheBreadcrumbVue, TheButtonVue, TheJobsListVue },
+  components: { TheBreadcrumbVue, TheButtonVue, TheJobsListVue, TheFilterDrawer },
   data() {
     return {
       filterInput: '',
