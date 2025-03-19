@@ -6,9 +6,9 @@ import TheHeaderVue from './components/nav/TheHeader.vue'
 
 <template>
   <TheHeaderVue />
-
-  <RouterView />
-
+  <div class="min-h-screen pb-[100px]">
+    <router-view> </router-view>
+  </div>
   <TheFooterVue />
 </template>
 

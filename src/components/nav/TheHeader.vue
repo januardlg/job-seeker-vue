@@ -1,11 +1,13 @@
 <template>
   <div class="sticky top-0 z-50">
-    <header class="bg-[#f1f2f4] py-3">
-      <div class="w-full flex justify-between items-center container-custom">
-        <nav>
+    <header class="bg-[#f1f2f4]">
+      <div class="w-full h-[38px] flex justify-between items-center container-custom">
+        <nav class="h-[38px]">
           <ul class="text-[#5E6670] text-sm list-none flex space-x-6">
-            <li>Home</li>
-            <li>Find Job</li>
+            <li>
+              <router-link to="/">Home</router-link>
+            </li>
+            <li><router-link to="/job">Find Job</router-link></li>
             <li>Employers</li>
             <li>Candidates</li>
             <li>Pricing Plants</li>
@@ -63,7 +65,31 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  height: 38px;
+}
 li {
   cursor: pointer;
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5e6670;
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+a:hover,
+a:active,
+a.active {
+  color: #0a65cc;
+  border-color: #f1a80a;
+  border-bottom: 1px solid;
 }
 </style>
