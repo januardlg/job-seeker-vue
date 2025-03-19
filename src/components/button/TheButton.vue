@@ -1,5 +1,8 @@
 <template>
-  <button :class="[variantButton, 'rounded-sm px-6 py-3 font-semibold cursor-pointer']">
+  <button
+    :class="[variantButton, 'rounded-sm px-6 py-3 font-semibold cursor-pointer']"
+    @click.prevent="handleButtonClick"
+  >
     <div class="flex justify-between items-center space-x-3">
       <div>
         <slot></slot>
@@ -31,6 +34,7 @@ export default {
       type: String,
     },
   },
+  emits: ['on-click-button'],
   data() {},
   computed: {
     variantButton() {
@@ -41,6 +45,11 @@ export default {
       } else if (this.variant === 'outline') {
         return 'bg-white text-[#0A65CC] border border-[#0A65CC]'
       }
+    },
+  },
+  methods: {
+    handleButtonClick() {
+      this.$emit('on-click-button')
     },
   },
 }

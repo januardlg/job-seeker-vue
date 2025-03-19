@@ -33,6 +33,16 @@ import {
   FaQuoteLeft,
   BiStarFill,
   FaUserCircle,
+  GiSettingsKnobs,
+  BiMap,
+  BiCalendar,
+  BiStopwatch,
+  CoLayers,
+  CoWallet,
+  LaSuitcaseSolid,
+  MdEmailOutlined,
+  CoLinkedinIn,
+  HiLink,
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -63,6 +73,16 @@ addIcons(
   FaQuoteLeft,
   BiStarFill,
   FaUserCircle,
+  GiSettingsKnobs,
+  BiMap,
+  BiCalendar,
+  BiStopwatch,
+  CoLayers,
+  CoWallet,
+  LaSuitcaseSolid,
+  MdEmailOutlined,
+  CoLinkedinIn,
+  HiLink,
 )
 
 const app = createApp(App)

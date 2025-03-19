@@ -1,14 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingView from '../views/LandingView.vue'
+import LandingPage from '../pages/LandingPage.vue'
+import JobListPage from '../pages/Jobs/JobListPage.vue'
+import JobDetailPage from '../pages/Jobs/JobDetailPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: LandingView,
+      // name: 'home',
+      component: LandingPage,
     },
+    { path: '/job', component: JobListPage },
+    { path: '/job/:jobId', component: JobDetailPage },
     // {
     //   path: '/about',
     //   name: 'about',
@@ -18,6 +22,7 @@ const router = createRouter({
     //   component: () => import('../views/AboutView.vue'),
     // },
   ],
+  linkActiveClass: 'active',
 })
 
 export default router
