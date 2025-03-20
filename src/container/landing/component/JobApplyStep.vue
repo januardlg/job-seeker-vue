@@ -52,7 +52,6 @@ export default {
 
   methods: {
     handleHoverStep(step) {
-      console.log('hover', step)
       this.activeStep = step
     },
   },
