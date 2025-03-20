@@ -164,12 +164,7 @@
   <div class="pt-[100px] border-t border-[#767F8C] container-custom">
     <p class="text-[40px] font-medium mb-[50px]">Related Jobs</p>
     <div class="grid grid-cols-3 gap-6">
-      <JobCardVue></JobCardVue>
-      <JobCardVue></JobCardVue>
-      <JobCardVue></JobCardVue>
-      <JobCardVue></JobCardVue>
-      <JobCardVue></JobCardVue>
-      <JobCardVue></JobCardVue>
+      <JobCardVue v-for="(job, index) in relatedJobsList" :key="index"></JobCardVue>
     </div>
   </div>
 </template>
@@ -209,8 +204,10 @@ export default {
           value: 'Graduation',
         },
       ],
+      relatedJobsList: this.$store.getters['jobs/relatedJobsList'],
     }
   },
+  computed: {},
   methods: {
     myFunction() {
       // Get the text field

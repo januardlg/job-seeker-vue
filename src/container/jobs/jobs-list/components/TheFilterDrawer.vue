@@ -104,7 +104,19 @@
           />
           <label for="isRemoteJob" class="ml-2">Remote Job</label>
         </div>
-        <the-button-vue @on-click-button="handleSubmitFilter">Apply Filter</the-button-vue>
+        <label for="my-drawer" class="cursor-pointer">
+          <div
+            @click="handleSubmitFilter"
+            class="bg-[#0A65CC] text-white rounded-sm px-6 py-3 font-semibold cursor-pointer"
+          >
+            Apply Filter
+            <!-- <v-icon name="io-close-circle-outline" class="icon" scale="1.5" color="#E7F0FA" /> -->
+
+            <!-- <span>
+              <the-button-vue @on-click-button="handleSubmitFilter">Apply Filter</the-button-vue>
+            </span> -->
+          </div>
+        </label>
       </div>
     </li>
   </ul>
@@ -225,11 +237,13 @@ export default {
       return formated
     },
     handleSubmitFilter() {
-      console.log('jobtype', this.jobType)
-      console.log('industryselected', this.industryselected)
-      console.log('minSalary', this.minSalary)
-      console.log('maxSalary', this.maxSalary)
-      console.log('isRemote', this.isRemote)
+      this.$store.dispatch('jobs/handleSetFilter', {
+        jobType: this.jobType,
+        industryselected: this.industryselected,
+        minSalary: this.minSalary,
+        maxSalary: this.maxSalary,
+        isRemote: this.isRemote,
+      })
     },
   },
 }

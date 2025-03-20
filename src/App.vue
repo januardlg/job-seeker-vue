@@ -1,13 +1,24 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
 import TheFooterVue from './components/footer/TheFooter.vue'
+import TheLoadingOverlayVue from './components/loading/TheLoadingOverlay.vue'
 import TheHeaderVue from './components/nav/TheHeader.vue'
+
+export default {
+  components: { RouterView, TheFooterVue, TheHeaderVue, TheLoadingOverlayVue },
+  computed: {
+    isLoadingOverlay() {
+      return this.$store.state.isLoadingOverlayOpen
+    },
+  },
+}
 </script>
 
 <template>
   <TheHeaderVue />
   <div class="min-h-screen pb-[100px]">
-    <router-view> </router-view>
+    <RouterView> </RouterView>
+    <TheLoadingOverlayVue v-if="isLoadingOverlay"></TheLoadingOverlayVue>
   </div>
   <TheFooterVue />
 </template>

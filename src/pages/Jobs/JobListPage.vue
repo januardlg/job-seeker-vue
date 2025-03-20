@@ -10,12 +10,16 @@
           <input
             placeholder="Job tittle, keyword, company"
             class="focus:outline-none w-full truncate ml-3"
-            v-model="filterInput"
+            v-model="searchInput"
           />
         </div>
         <div class="input-container">
           <v-icon name="co-location-pin" class="icon" color="#0066FF" scale="1.3" />
-          <input placeholder="Your Location" class="focus:outline-none w-full ml-3" />
+          <input
+            placeholder="Your Location"
+            class="focus:outline-none w-full ml-3"
+            v-model="locationInput"
+          />
         </div>
         <div class="flex justify-end p-1.5 space-x-3">
           <div>
@@ -50,6 +54,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import TheBreadcrumbVue from '@/components/breadcrumb/TheBreadcrumb.vue'
 import TheButtonVue from '@/components/button/TheButton.vue'
 import TheJobsListVue from '@/container/jobs/jobs-list/TheJobsList.vue'
@@ -60,20 +65,23 @@ export default {
   components: { TheBreadcrumbVue, TheButtonVue, TheJobsListVue, TheFilterDrawer },
   data() {
     return {
-      filterInput: '',
+      searchInput: '',
       locationInput: '',
     }
   },
   watch: {
-    // filterInput() {
-    //   console.log('filterInput', this.filterInput)
+    // searchInput() {
+    //   console.log('searchInput', this.searchInput)
     // },
   },
   methods: {
     onClickButtonSearch() {
-      console.log('Search using filter', this.filterInput)
-      console.log('Search using location', this.locationInput)
+      this.handleSearchByFilter({
+        searchInput: this.searchInput,
+        locationInput: this.locationInput,
+      })
     },
+    ...mapActions('jobs', ['handleSearchByFilter']),
   },
 }
 </script>
