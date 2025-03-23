@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="teamMembersLink">
+  <router-link :to="jobDetailLink">
     <div
       :class="[
         isRemote ? 'bg-linear-[90deg,#FFF6E6_0%,#FFF_100%] cursor-pointer' : 'bg-white',
@@ -79,8 +79,8 @@ export default {
       return `${Math.floor(diffInSeconds / 31536000)} years ago`
       // return new Date(this.created_at * 1000).toLocaleString()
     },
-    teamMembersLink() {
-      return '/job/' + this.id
+    jobDetailLink() {
+      return '/job/detail/' + this.id
     },
   },
 }

@@ -1,4 +1,5 @@
 <template>
+  <TheHeaderVue></TheHeaderVue>
   <HeroLandingVue :listItem="listItem"> </HeroLandingVue>
   <PopularVacanciesVue :listPopularVacancies="listPopularVacancies"></PopularVacanciesVue>
   <JobApplyStepVue></JobApplyStepVue>
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import TheHeaderVue from '@/components/nav/TheHeader.vue'
 import AdvertisementSectionVue from './component/AdvertisementSection.vue'
 import FeaturedJobsVue from './component/FeaturedJobs.vue'
 import HeroLandingVue from './component/HeroLanding.vue'
@@ -29,6 +31,7 @@ export default {
     TopComapinesVue,
     AdvertisementSectionVue,
     TestimonialSectionVue,
+    TheHeaderVue,
   },
   data() {
     return {

@@ -15,12 +15,16 @@ export default {
 </script>
 
 <template>
-  <TheHeaderVue />
+  <TheLoadingOverlayVue v-if="isLoadingOverlay"></TheLoadingOverlayVue>
+
+  <RouterView> </RouterView>
+
+  <!-- <TheHeaderVue />
   <div class="min-h-screen pb-[100px]">
     <RouterView> </RouterView>
     <TheLoadingOverlayVue v-if="isLoadingOverlay"></TheLoadingOverlayVue>
   </div>
-  <TheFooterVue />
+  <TheFooterVue /> -->
 </template>
 
 <style scoped>
