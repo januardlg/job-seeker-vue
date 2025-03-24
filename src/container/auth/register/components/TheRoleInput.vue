@@ -8,7 +8,7 @@
         <v-icon name="ri-account-circle-fill" class="icon" color="#FFFF" scale="1" />
         <p class="text-white">Candidate</p>
       </div>
-      <div class="flex space-x-1 justify-center items-center p-2 cursor-pointer">
+      <div class="flex space-x-1 justify-center items-center p-2 cursor-not-allowed">
         <v-icon name="bi-bookmark" class="icon" color="#000000" scale="1" />
         <p>Employers</p>
       </div>

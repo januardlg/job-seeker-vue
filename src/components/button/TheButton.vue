@@ -49,7 +49,7 @@ export default {
       } else if (this.variant === 'outline') {
         return 'bg-white text-[#0A65CC] border border-[#0A65CC] cursor-pointer'
       } else if (this.variant === 'disabled') {
-        return 'bg-gray-300 text-gray200 cursor-not-allowed'
+        return 'bg-gray-300 text-gray200 cursor-not-allowed pointer-events-none'
       }
     },
   },

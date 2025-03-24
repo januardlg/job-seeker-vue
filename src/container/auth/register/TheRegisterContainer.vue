@@ -35,6 +35,7 @@
           :variant="isEnableSubmit ? 'primary' : 'disabled'"
           :style="{ width: '100%' }"
           icon="bi-arrow-right-short"
+          @on-click-button="handleSubmitRegister"
           >Create Account</TheButtonVue
         >
       </div>
@@ -51,11 +52,11 @@ export default {
   components: { TheButtonVue, TheInputVue, TheInputPasswordVue, TheRoleInputVue },
   data() {
     return {
-      fullName: undefined,
-      username: undefined,
-      email: undefined,
-      password: undefined,
-      confirmPassword: undefined,
+      fullName: 'januard',
+      username: 'januardlg',
+      email: 'usdercandidate1@mail.com',
+      password: 'password',
+      confirmPassword: 'password',
       agreeTnC: false,
       isEnableSubmit: false,
     }
@@ -109,6 +110,15 @@ export default {
     },
   },
   watch: {},
-  methods: {},
+  methods: {
+    handleSubmitRegister() {
+      this.$store.dispatch('auth/register', {
+        fullName: this.fullName,
+        username: this.username,
+        email: this.email,
+        password: this.password,
+      })
+    },
+  },
 }
 </script>

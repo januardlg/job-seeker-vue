@@ -25,6 +25,7 @@
           :variant="isEnableSubmit ? 'primary' : 'disabled'"
           :style="{ width: '100%' }"
           icon="bi-arrow-right-short"
+          @on-click-button="handleSubmitLogin"
           >Sign In</TheButtonVue
         >
       </div>
@@ -43,8 +44,8 @@ export default {
       inputAccount: {
         email: undefined,
         password: undefined,
-        isEnableSubmit: false,
       },
+      isEnableSubmit: false,
     }
   },
   computed: {
@@ -59,7 +60,7 @@ export default {
       if (
         this.inputAccount.email &&
         this.inputAccount.email !== '' &&
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email) &&
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.inputAccount.email) &&
         this.inputAccount.password &&
         this.inputAccount.password !== ''
       ) {
@@ -67,6 +68,11 @@ export default {
       }
 
       return isEnable
+    },
+  },
+  methods: {
+    handleSubmitLogin() {
+      this.$store.dispatch('auth/login', this.inputAccount)
     },
   },
 }
