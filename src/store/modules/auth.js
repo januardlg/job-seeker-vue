@@ -212,7 +212,6 @@ export default {
       }
     },
     async autoLogout(context, payload) {
-      console.log('auto logout')
       try {
         await context.dispatch('logout')
         clearTimeout(timerExpiredLogin)
