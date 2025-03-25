@@ -42,8 +42,8 @@ export default {
   data() {
     return {
       inputAccount: {
-        email: undefined,
-        password: undefined,
+        email: 'usercandidate1@mail.com',
+        password: 'password',
       },
       isEnableSubmit: false,
     }

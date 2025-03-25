@@ -20,7 +20,10 @@ import TheButtonVue from '../button/TheButton.vue'
 export default {
   components: { TheButtonVue },
   computed: {
-    ...mapState('modal', ['isOpenModal', 'modalContent']),
+    ...mapState('modal', ['modalContent']),
+    isOpenModal() {
+      return this.modalContent.isOpenModal
+    },
     iconModal() {
       let icon
 
@@ -44,9 +47,9 @@ export default {
     },
   },
   methods: {
-    ...mapActions('modal', ['handleSetIsOpenModal']),
+    ...mapActions('modal', ['handleSetModalContent']),
     handleCloseModal() {
-      this.handleSetIsOpenModal(false)
+      this.handleSetModalContent({ isOpenModal: false })
     },
   },
 }

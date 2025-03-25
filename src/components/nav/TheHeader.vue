@@ -7,7 +7,7 @@
             <li>
               <router-link to="/">Home</router-link>
             </li>
-            <li><router-link to="/job">Find Job</router-link></li>
+            <li><router-link to="/job/list">Find Job</router-link></li>
             <li>Employers</li>
             <li>Candidates</li>
             <li>Pricing Plants</li>
@@ -43,23 +43,41 @@
         </div>
       </div>
       <div class="flex space-x-3">
-        <TheButton variant="outline">Log In</TheButton>
-        <TheButton variant="primary">Post A Jobs</TheButton>
+        <div v-if="detailUser">
+          <TheProfilePopoverVue></TheProfilePopoverVue>
+        </div>
+        <div v-else>
+          <TheButton variant="outline" @click="handleGoLogin">Log In</TheButton>
+        </div>
+        <div v-if="detailUser && !detailUser?.role === 'candidate'">
+          <TheButton variant="primary">Post A Jobs</TheButton>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import TheButton from '../button/TheButton.vue'
+import TheProfilePopoverVue from './TheProfilePopover.vue'
 export default {
   components: {
     TheButton,
+    TheProfilePopoverVue,
   },
   data() {
     return {
       country: 'indonesia',
     }
+  },
+  computed: {
+    ...mapGetters('auth', ['detailUser']),
+  },
+  methods: {
+    handleGoLogin() {
+      this.$router.push({ name: 'auth-login' })
+    },
   },
 }
 </script>

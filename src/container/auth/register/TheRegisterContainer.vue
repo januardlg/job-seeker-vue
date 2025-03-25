@@ -52,9 +52,9 @@ export default {
   components: { TheButtonVue, TheInputVue, TheInputPasswordVue, TheRoleInputVue },
   data() {
     return {
-      fullName: 'januard',
-      username: 'januardlg',
-      email: 'usdercandidate1@mail.com',
+      fullName: 'Alex Pastoor',
+      username: 'alex',
+      email: 'usercandidate1@mail.com',
       password: 'password',
       confirmPassword: 'password',
       agreeTnC: false,
@@ -117,6 +117,7 @@ export default {
         username: this.username,
         email: this.email,
         password: this.password,
+        role: 'candidate',
       })
     },
   },

@@ -12,6 +12,9 @@ export default {
       return this.$store.state.isLoadingOverlayOpen
     },
   },
+  created() {
+    this.$store.dispatch('auth/tryLogin')
+  },
 }
 </script>
 

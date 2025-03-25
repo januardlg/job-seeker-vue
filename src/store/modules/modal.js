@@ -2,8 +2,8 @@ export default {
   namespaced: true,
   state() {
     return {
-      isOpenModal: false,
       modalContent: {
+        isOpenModal: false,
         variant: 'error',
         description: 'Modal description',
       },
@@ -14,6 +14,7 @@ export default {
       state.isOpenModal = payload
     },
     setModalContent(state, payload) {
+      state.modalContent.isOpenModal = payload.isOpenModal
       state.modalContent.variant = payload.variant
       state.modalContent.description = payload.description
     },
@@ -22,7 +23,7 @@ export default {
     handleSetIsOpenModal(context, payload) {
       context.commit('setIsOpenModal', payload)
     },
-    handleSetModalConent(context, payload) {
+    handleSetModalContent(context, payload) {
       context.commit('setModalContent', payload)
     },
   },
