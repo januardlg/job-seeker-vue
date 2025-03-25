@@ -106,8 +106,8 @@ export default {
           },
         )
         if (responseLogin.status === 200) {
-          const expiresIn = +responseLogin?.data.expiresIn * 1000
-          // const expiresIn = 5 * 1000
+          // const expiresIn = +responseLogin?.data.expiresIn * 1000
+          const expiresIn = 3600 * 1000
 
           const expirationDate = new Date().getTime() + expiresIn
 
@@ -212,6 +212,10 @@ export default {
       }
     },
     async autoLogout(context, payload) {
+<<<<<<< HEAD
+=======
+      console.log('auto logout')
+>>>>>>> main
       try {
         await context.dispatch('logout')
         clearTimeout(timerExpiredLogin)
