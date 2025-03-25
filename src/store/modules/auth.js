@@ -106,10 +106,9 @@ export default {
           },
         )
         if (responseLogin.status === 200) {
-          // const expiresIn = +responseLogin?.data.expiresIn * 1000
-          const expiresIn = 5 * 1000
+          const expiresIn = +responseLogin?.data.expiresIn * 1000
+          // const expiresIn = 5 * 1000
 
-          // const expiresIn = 5000;
           const expirationDate = new Date().getTime() + expiresIn
 
           localStorage.setItem('userId', responseLogin?.data?.localId)
