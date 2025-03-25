@@ -2,25 +2,36 @@
 import { RouterLink, RouterView } from 'vue-router'
 import TheFooterVue from './components/footer/TheFooter.vue'
 import TheLoadingOverlayVue from './components/loading/TheLoadingOverlay.vue'
+import TheModalVue from './components/modal/TheModal.vue'
 import TheHeaderVue from './components/nav/TheHeader.vue'
 
 export default {
-  components: { RouterView, TheFooterVue, TheHeaderVue, TheLoadingOverlayVue },
+  components: { RouterView, TheFooterVue, TheHeaderVue, TheLoadingOverlayVue, TheModalVue },
   computed: {
     isLoadingOverlay() {
       return this.$store.state.isLoadingOverlayOpen
     },
   },
+  created() {
+    this.$store.dispatch('auth/tryLogin')
+  },
 }
 </script>
 
 <template>
-  <TheHeaderVue />
+  <TheLoadingOverlayVue v-if="isLoadingOverlay"></TheLoadingOverlayVue>
+
+  <RouterView> </RouterView>
+
+  <!-- <TheHeaderVue />
   <div class="min-h-screen pb-[100px]">
     <RouterView> </RouterView>
     <TheLoadingOverlayVue v-if="isLoadingOverlay"></TheLoadingOverlayVue>
   </div>
-  <TheFooterVue />
+  <TheFooterVue /> -->
+
+  <!-- Open the modal using ID.showModal() method -->
+  <the-modal-vue></the-modal-vue>
 </template>
 
 <style scoped>

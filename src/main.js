@@ -46,6 +46,11 @@ import {
   HiLink,
   IoCloseCircleOutline,
   IoCloseCircle,
+  FaRegularEye,
+  FaRegularEyeSlash,
+  RiAccountCircleFill,
+  MdCheckcircleRound,
+  MdError,
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -88,6 +93,11 @@ addIcons(
   HiLink,
   IoCloseCircleOutline,
   IoCloseCircle,
+  FaRegularEye,
+  FaRegularEyeSlash,
+  RiAccountCircleFill,
+  MdCheckcircleRound,
+  MdError,
 )
 
 const app = createApp(App)

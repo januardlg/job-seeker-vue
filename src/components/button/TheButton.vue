@@ -1,9 +1,10 @@
 <template>
   <button
-    :class="[variantButton, 'rounded-sm px-6 py-3 font-semibold cursor-pointer']"
+    :class="[variantButton, 'rounded-sm px-6 py-3 font-semibold flex justify-center']"
     @click.prevent="handleButtonClick"
+    :style="{ ...style }"
   >
-    <div class="flex justify-between items-center space-x-3">
+    <div class="flex items-center space-x-3">
       <div>
         <slot></slot>
       </div>
@@ -33,17 +34,22 @@ export default {
     icon: {
       type: String,
     },
+    style: {
+      required: false,
+    },
   },
   emits: ['on-click-button'],
   data() {},
   computed: {
     variantButton() {
       if (this.variant === 'primary') {
-        return 'bg-[#0A65CC] text-white'
+        return 'bg-[#0A65CC] text-white cursor-pointer'
       } else if (this.variant === 'primary-white') {
-        return 'bg-white text-[#0A65CC]'
+        return 'bg-white text-[#0A65CC] cursor-pointer'
       } else if (this.variant === 'outline') {
-        return 'bg-white text-[#0A65CC] border border-[#0A65CC]'
+        return 'bg-white text-[#0A65CC] border border-[#0A65CC] cursor-pointer'
+      } else if (this.variant === 'disabled') {
+        return 'bg-gray-300 text-gray200 cursor-not-allowed pointer-events-none'
       }
     },
   },
