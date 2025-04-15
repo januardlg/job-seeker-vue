@@ -45,7 +45,7 @@ export default {
         )
         if (response.status === 200) {
           const userId = response.data.localId
-          const userRef = `${REALTIME_DATABASE_URL}/users/${userId}.json`
+          const userRef = `${REALTIME_DATABASE_URL}/usersCandidate/${userId}.json?auth=${response.data.idToken}`
 
           try {
             const responseDatabase = await axios.put(userRef, {
@@ -100,6 +100,7 @@ export default {
           {
             email: payload.email,
             password: payload.password,
+            returnSecureToken: true,
           },
           {
             params,
@@ -149,7 +150,12 @@ export default {
     async getUserDetail(context, payload) {
       try {
         const responseData = await axios.get(
-          `${REALTIME_DATABASE_URL}/users/${payload.userId}.json?auth=${payload.token}`,
+          `${REALTIME_DATABASE_URL}/usersCandidate/${payload.userId}.json?auth=${payload.token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${payload.token}`,
+            },
+          },
         )
         context.commit('setDetailuser', responseData.data)
       } catch (error) {
