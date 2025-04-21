@@ -7,7 +7,7 @@
       :jobTitle="job.title"
       :company-name="job.company_name"
       :location="job.location"
-      :created_at="job.created_at"
+      :createdAt="job.created_at"
       :is-remote="job.remote"
     ></job-card>
   </div>

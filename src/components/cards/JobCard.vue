@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="jobDetailLink">
+  <router-link :to="jobDetailLink" @click="handleClickCard">
     <div
       :class="[
         isRemote ? 'bg-linear-[90deg,#FFF6E6_0%,#FFF_100%] cursor-pointer' : 'bg-white',
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 import CompanyNameInCardVue from './CompanyNameInCard.vue'
 export default {
   components: { CompanyNameInCardVue },
@@ -54,7 +56,7 @@ export default {
       required: true,
       default: 'New York, USA',
     },
-    created_at: {
+    createdAt: {
       type: Date,
       required: true,
       default: '10 days ago',
@@ -68,7 +70,7 @@ export default {
   computed: {
     getIntervalDate() {
       const now = Date.now()
-      const diffInSeconds = Math.floor((now - this.created_at * 1000) / 1000)
+      const diffInSeconds = Math.floor(now / 1000) - this.createdAt
 
       if (diffInSeconds < 60) return `${diffInSeconds} seconds ago`
       if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minutes ago`
@@ -77,10 +79,25 @@ export default {
       if (diffInSeconds < 31536000) return `${Math.floor(diffInSeconds / 2592000)} months ago`
 
       return `${Math.floor(diffInSeconds / 31536000)} years ago`
-      // return new Date(this.created_at * 1000).toLocaleString()
+      // return new Date(this.createdAt * 1000).toLocaleString()
     },
     jobDetailLink() {
       return '/job/detail/' + this.id
+    },
+  },
+  methods: {
+    ...mapActions('jobs', ['handleSetOpenedJobDetail']),
+    handleClickCard() {
+      console.log('Click Detail ')
+      this.handleSetOpenedJobDetail({
+        slug: this.id,
+        companyName: this.companyName,
+        title: this.jobTitle,
+        description: '<div></div>',
+        remote: this.isRemote,
+        location: this.location,
+        createdAt: this.createdAt,
+      })
     },
   },
 }

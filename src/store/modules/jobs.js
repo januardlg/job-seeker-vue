@@ -33,6 +33,15 @@ export default {
         searchText: '',
         locationText: '',
       },
+      openedJobDetail: {
+        slug: '',
+        companyName: '',
+        title: '',
+        description: '<div></div>',
+        remote: false,
+        location: '',
+        createdAt: undefined,
+      },
     }
   },
   mutations: {
@@ -47,6 +56,15 @@ export default {
       state.searchByInput.searchText = payload.searchInput
       state.searchByInput.locationText = payload.locationInput
     },
+    setOpenedJobDetail(state, payload) {
+      state.openedJobDetail.slug = payload.slug
+      state.openedJobDetail.companyName = payload.companyName
+      state.openedJobDetail.title = payload.title
+      state.openedJobDetail.description = payload.description
+      state.openedJobDetail.remote = payload.remote
+      state.openedJobDetail.location = payload.location
+      state.openedJobDetail.createdAt = payload.createdAt
+    },
   },
   actions: {
     handleSetFilter(context, payload) {
@@ -54,6 +72,9 @@ export default {
     },
     handleSearchByFilter(context, payload) {
       context.commit('setSearchByInput', payload)
+    },
+    handleSetOpenedJobDetail(context, payload) {
+      context.commit('setOpenedJobDetail', payload)
     },
   },
   getters: {

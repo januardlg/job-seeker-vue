@@ -6,9 +6,11 @@
           <v-icon name="px-buildings" class="icon" color="#0A65CC" scale="4" />
         </div>
         <div>
-          <p class="text-2xl font-medium">Senior UX Designer</p>
+          <p class="text-2xl font-medium">{{ openedJobDetail.title }}</p>
           <div class="flex space-x-0.5 items-center">
-            <p class="text-lg font-normal text-[#767F8C] mt-2">at Facebook</p>
+            <p class="text-lg font-normal text-[#767F8C] mt-2">
+              at {{ openedJobDetail.companyName }}, {{ openedJobDetail.location }}
+            </p>
           </div>
         </div>
       </div>
@@ -16,7 +18,9 @@
         <div class="p-2 bg-[#E7F0FA] rounded-sm">
           <v-icon name="bi-bookmark" class="icon cursor-pointer" color="#0A65CC" scale="1.5" />
         </div>
-        <the-button-vue icon="bi-arrow-right-short">Apply Now</the-button-vue>
+        <the-button-vue icon="bi-arrow-right-short" @click="handleClickApplyJob"
+          >Apply Now</the-button-vue
+        >
       </div>
     </div>
     <div class="mt-8 grid grid-cols-3 gap-10">
@@ -125,9 +129,18 @@
             <p class="text-sm text-[#767F8C]">Yearly salary</p>
           </div>
           <div>
-            <v-icon name="bi-map" class="icon" color="#0A65CC" scale="1.5" />
-            <p class="font-medium mt-2">Job Location</p>
-            <p class="text-[#767F8C]">Dhaka, Bangladesh</p>
+            <v-icon
+              :name="!openedJobDetail.remote ? 'bi-map' : 'la-suitcase-solid'"
+              class="icon"
+              color="#0A65CC"
+              scale="1.5"
+            />
+            <p class="font-medium mt-2">
+              {{ !openedJobDetail.remote ? 'Job Location' : 'Remote Job' }}
+            </p>
+            <p class="text-[#767F8C]">
+              {{ !openedJobDetail.remote ? openedJobDetail.location : 'Worldwide' }}
+            </p>
           </div>
         </div>
         <div class="mt-8 p-8 rounded-t-lg border border-[#E7F0FA] space-y-5">
@@ -170,18 +183,24 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 import TheButtonVue from '@/components/button/TheButton.vue'
 import TheButtonIconVue from '@/components/button/TheButtonIcon.vue'
 import JobCardVue from '@/components/cards/JobCard.vue'
+import TheApplyFormVue from './components/TheApplyForm.vue'
 export default {
-  components: { TheButtonVue, TheButtonIconVue, JobCardVue },
+  components: { TheButtonVue, TheButtonIconVue, JobCardVue, TheApplyFormVue },
   data() {
     return {
       jobOverviewList: [
         {
           icon: 'bi-calendar',
           label: 'Job Posted:',
-          value: '14 Jun, 2021',
+          value: this.$store.state.jobs.openedJobDetail.createdAt
+            ? new Date(this.$store.state.jobs.openedJobDetail.createdAt * 1000).toLocaleDateString(
+                'en-ZA'
+              )
+            : '-',
         },
         {
           icon: 'bi-stopwatch',
@@ -207,8 +226,11 @@ export default {
       relatedJobsList: this.$store.getters['jobs/relatedJobsList'],
     }
   },
-  computed: {},
+  computed: {
+    ...mapState('jobs', ['openedJobDetail']),
+  },
   methods: {
+    ...mapActions('modal', ['handleSetModalContent']),
     myFunction() {
       // Get the text field
       var copyText = document.getElementById('linkDetail')
@@ -222,6 +244,15 @@ export default {
 
       // Alert the copied text
       alert('Copied the link: ' + copyText.value)
+    },
+    handleClickApplyJob() {
+      console.log('Apply')
+      // this.handleSetModalContent({
+      //   isOpenModal: true,
+      //   variant: 'custom',
+      //   // description: 'Credential is Expired. Please Login Again',
+      //   content: 'the-apply-form-vue',
+      // })
     },
   },
 }
