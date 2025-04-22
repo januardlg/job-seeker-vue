@@ -157,7 +157,7 @@ export default {
             },
           },
         )
-        context.commit('setDetailuser', responseData.data)
+        context.commit('setDetailuser', { ...responseData.data, uid: payload.userId })
       } catch (error) {
         console.log('FAILED GET USERS', error)
       }

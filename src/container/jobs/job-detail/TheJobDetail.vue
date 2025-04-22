@@ -180,6 +180,8 @@
       <JobCardVue v-for="(job, index) in relatedJobsList" :key="index"></JobCardVue>
     </div>
   </div>
+
+  <the-apply-form-vue> </the-apply-form-vue>
 </template>
 
 <script>
@@ -188,8 +190,9 @@ import TheButtonVue from '@/components/button/TheButton.vue'
 import TheButtonIconVue from '@/components/button/TheButtonIcon.vue'
 import JobCardVue from '@/components/cards/JobCard.vue'
 import TheApplyFormVue from './components/TheApplyForm.vue'
+import TheModalContainerVue from '@/components/modal/TheModalContainer.vue'
 export default {
-  components: { TheButtonVue, TheButtonIconVue, JobCardVue, TheApplyFormVue },
+  components: { TheButtonVue, TheButtonIconVue, JobCardVue, TheApplyFormVue, TheModalContainerVue },
   data() {
     return {
       jobOverviewList: [
@@ -230,7 +233,7 @@ export default {
     ...mapState('jobs', ['openedJobDetail']),
   },
   methods: {
-    ...mapActions('modal', ['handleSetModalContent']),
+    ...mapActions('modal', ['handleSetIsOpenCustomModal']),
     myFunction() {
       // Get the text field
       var copyText = document.getElementById('linkDetail')
@@ -246,13 +249,7 @@ export default {
       alert('Copied the link: ' + copyText.value)
     },
     handleClickApplyJob() {
-      console.log('Apply')
-      // this.handleSetModalContent({
-      //   isOpenModal: true,
-      //   variant: 'custom',
-      //   // description: 'Credential is Expired. Please Login Again',
-      //   content: 'the-apply-form-vue',
-      // })
+      this.handleSetIsOpenCustomModal(true)
     },
   },
 }

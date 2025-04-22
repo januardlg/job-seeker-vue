@@ -1,3 +1,5 @@
+import api from '@/service/api'
+
 export default {
   namespaced: true,
   state() {
@@ -75,6 +77,45 @@ export default {
     },
     handleSetOpenedJobDetail(context, payload) {
       context.commit('setOpenedJobDetail', payload)
+    },
+    async onSubmitApply(context, payload) {
+      console.log('onSubmitApply', payload)
+      const userDetail = context.rootState.auth.detailUser
+      const detailJob = context.state.openedJobDetail
+      const dataSubmit = {
+        ...detailJob,
+        base64CvFile: payload.base64CV,
+        coverLetterText: payload.coverLetter,
+      }
+      context.dispatch('handleSetIsLoadingOverlay', true, { root: true })
+      try {
+        const response = await api.post(`/appliedJob/${userDetail.uid}.json`, dataSubmit)
+        if (response) {
+          context.dispatch(
+            'modal/handleSetModalContent',
+            {
+              isOpenModal: true,
+              variant: 'success',
+              description: 'Success apply Job',
+            },
+            { root: true },
+          )
+          context.dispatch('modal/handleSetIsOpenCustomModal', false, { root: true })
+        }
+      } catch (error) {
+        console.log('error,', error)
+        context.dispatch(
+          'modal/handleSetModalContent',
+          {
+            isOpenModal: true,
+            variant: 'error',
+            description: 'Failed to apply Job',
+          },
+          { root: true },
+        )
+      } finally {
+        context.dispatch('handleSetIsLoadingOverlay', false, { root: true })
+      }
     },
   },
   getters: {

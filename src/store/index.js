@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 import jobsModule from './modules/jobs'
 import authModule from './modules/auth'
 import modalModule from './modules/modal'
-import axios from 'axios'
 
 const store = createStore({
   modules: {
