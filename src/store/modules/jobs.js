@@ -77,6 +77,7 @@ export default {
     },
     handleSetOpenedJobDetail(context, payload) {
       context.commit('setOpenedJobDetail', payload)
+      localStorage.setItem('activeDetailJob', JSON.stringify(payload))
     },
     async onSubmitApply(context, payload) {
       console.log('onSubmitApply', payload)

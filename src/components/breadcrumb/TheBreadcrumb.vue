@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-between items-center py-6 bg-[#F1F2F4] container-custom sticky top-[130px] z-50"
+    class="flex justify-between items-center py-6 bg-[#F1F2F4] container-custom sticky top-[130px] z-10"
   >
     <p>Find Job</p>
     <div></div>

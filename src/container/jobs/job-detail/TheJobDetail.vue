@@ -234,6 +234,7 @@ export default {
   },
   methods: {
     ...mapActions('modal', ['handleSetIsOpenCustomModal']),
+    ...mapActions('jobs', ['handleSetOpenedJobDetail']),
     myFunction() {
       // Get the text field
       var copyText = document.getElementById('linkDetail')
@@ -251,6 +252,18 @@ export default {
     handleClickApplyJob() {
       this.handleSetIsOpenCustomModal(true)
     },
+    fetchActiveDetailJob() {
+      const activeDetailJob = localStorage.getItem('activeDetailJob')
+      if (activeDetailJob) {
+        const detail = JSON.parse(activeDetailJob)
+        this.handleSetOpenedJobDetail(detail)
+      } else {
+        this.$router.push({ name: 'job-list' })
+      }
+    },
+  },
+  mounted() {
+    this.fetchActiveDetailJob()
   },
 }
 </script>
