@@ -44,6 +44,7 @@ export default {
         location: '',
         createdAt: undefined,
       },
+      appliedJobs: [],
     }
   },
   mutations: {
@@ -67,6 +68,9 @@ export default {
       state.openedJobDetail.location = payload.location
       state.openedJobDetail.createdAt = payload.createdAt
     },
+    setAppliedJobs(state, payload) {
+      state.appliedJobs = payload
+    },
   },
   actions: {
     handleSetFilter(context, payload) {
@@ -87,6 +91,7 @@ export default {
         ...detailJob,
         base64CvFile: payload.base64CV,
         coverLetterText: payload.coverLetter,
+        appliedAt: new Date().toISOString(),
       }
       context.dispatch('handleSetIsLoadingOverlay', true, { root: true })
       try {
@@ -118,6 +123,52 @@ export default {
         context.dispatch('handleSetIsLoadingOverlay', false, { root: true })
       }
     },
+    async handleFetchAppliedJobs(context, payload) {
+      const userId = context.rootState.auth.credentialSignIn.userId
+
+      console.log({ userId })
+
+      context.dispatch('handleSetIsLoadingOverlay', true, { root: true })
+      try {
+        const response = await api.get(`/appliedJob/${userId}.json`)
+        if (response.status === 200) {
+          let appliedJobArray = []
+
+          const data = response.data
+          for (const key in data) {
+            const appliedData = {
+              appliedIdJob: key,
+              slug: data[key].slug,
+              companyName: data[key].companyName,
+              title: data[key].title,
+              description: data[key].description,
+              remote: data[key].remote,
+              location: data[key].location,
+              createdAt: data[key].createdAt,
+              appliedAt: data[key].appliedAt,
+            }
+
+            appliedJobArray.push(appliedData)
+          }
+
+          // console.log('arr', appliedJobArray)
+          context.commit('setAppliedJobs', appliedJobArray)
+        }
+      } catch (error) {
+        console.log(error)
+        context.dispatch(
+          'modal/handleSetModalContent',
+          {
+            isOpenModal: true,
+            variant: 'error',
+            description: error,
+          },
+          { root: true },
+        )
+      } finally {
+        context.dispatch('handleSetIsLoadingOverlay', false, { root: true })
+      }
+    },
   },
   getters: {
     relatedJobsList(state) {
@@ -125,6 +176,14 @@ export default {
     },
     filterOptions(state) {
       return state.filterJob
+    },
+    getAllAppliedJobs(state) {
+      return state.appliedJobs
+    },
+    recentlyAppliedJobs(state) {
+      const recently = state.appliedJobs.slice(0, 4)
+
+      return recently
     },
   },
 }

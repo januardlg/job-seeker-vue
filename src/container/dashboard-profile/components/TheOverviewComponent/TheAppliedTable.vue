@@ -15,10 +15,11 @@
         class="group pl-4 border-b-[#e5e7eb] border border-white cursor-pointer rounded-md hover:bg-[#d3e8ff]"
       >
         <td>
-          <div><the-applied-job-card-vue></the-applied-job-card-vue></div>
+          <div><the-applied-job-card-vue :data="item"></the-applied-job-card-vue></div>
         </td>
         <td>
-          <p class="text-[#5e6670]">Feb 27, 2025 20:00</p>
+          <p class="text-[#5e6670]">{{ getTimeFormat(item.appliedAt) }}</p>
+          <!-- Feb 27, 2025 20:00 -->
         </td>
         <td>
           <p class="text-green-600 font-medium">Active</p>
@@ -39,14 +40,42 @@ import TheAppliedJobCardVue from '../TheAppliedJobCard.vue'
 export default {
   components: { TheButtonVue, TheAppliedJobCardVue },
   props: {
-    // listAppliedJob: {
-    //   type: Array,
-    // },
+    listAppliedJob: {
+      type: Array,
+    },
   },
   data() {
     return {
-      listAppliedJob: [0, 1, 2, 3, 5, 6, 7, 8],
+      // listAppliedJob: [0, 1, 2, 3, 5, 6, 7, 8],
     }
+  },
+  methods: {
+    getTimeFormat(dateData) {
+      const date = new Date(dateData)
+      const monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ]
+
+      const formatted =
+        String(date.getDate()).padStart(2, '0') +
+        ' ' +
+        monthNames[date.getMonth()] +
+        ' ' +
+        date.getFullYear() +
+        ' '
+      return formatted
+    },
   },
 }
 </script>

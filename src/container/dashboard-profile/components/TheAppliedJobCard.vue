@@ -5,14 +5,14 @@
     </div>
     <div class="space-y-1">
       <div class="flex items-center space-x-2">
-        <p class="font-medium">Network Enginner</p>
-        <div class="px-2 rounded-xl bg-gray-100">
+        <p class="font-medium">{{ data.title }}</p>
+        <div class="px-2 rounded-xl bg-gray-100" v-if="data.remote">
           <p class="text-[#0A65CC]">Remote</p>
         </div>
       </div>
       <div class="text-[#5E6670] text-sm">
         <div class="flex items-center space-x-2">
-          <div class="flex space-x-1">Washington</div>
+          <div class="flex space-x-1">{{ data.companyName }}</div>
           <div class="flex items-center space-x-1">
             <p>$</p>
             <p>$50k-$80k month</p>
@@ -24,5 +24,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    data: {
+      required: true,
+    },
+  },
+}
 </script>

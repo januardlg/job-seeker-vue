@@ -14,31 +14,38 @@
         :color="item.color"
       ></the-info-item-overview-vue>
     </div>
-    <div class="my-4 flex justify-between items-center">
-      <p class="mt-8 font-semibold text-xl">Recently Added</p>
+    <div class="my-4 flex justify-between items-center mt-8">
+      <p class="font-semibold text-xl">Recently Added</p>
       <div class="flex items-center space-x-1 text-[#5e6670]">
-        <p>View All</p>
+        <router-link to="/dashboard/applied-jobs"><p>View All</p></router-link>
       </div>
     </div>
     <div>
-      <the-applied-table-vue></the-applied-table-vue>
+      <the-applied-table-vue :listAppliedJob="recentlyAppliedJobs"></the-applied-table-vue>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 import TheAppliedTableVue from './components/TheOverviewComponent/TheAppliedTable.vue'
 import TheInfoItemOverviewVue from './components/TheOverviewComponent/TheInfoItemOverview.vue'
 export default {
   components: { TheInfoItemOverviewVue, TheAppliedTableVue },
   data() {
     return {
-      listItem: [
+      listItem: [],
+    }
+  },
+  computed: {
+    ...mapGetters('auth', ['detailUser']),
+    ...mapGetters('jobs', ['recentlyAppliedJobs', 'getAllAppliedJobs']),
+    listItem() {
+      return [
         {
           icon: 'fa-suitcase',
           label: 'Applied Job',
-          value: '123',
+          value: this.getAllAppliedJobs.length,
           color: '#e7f0fa',
         },
 
@@ -54,11 +61,15 @@ export default {
           value: '90',
           color: '#e7f6ea',
         },
-      ],
-    }
+      ]
+    },
   },
-  computed: {
-    ...mapGetters('auth', ['detailUser']),
+  methods: {
+    ...mapActions('jobs', ['handleFetchAppliedJobs']),
   },
+  created() {
+    this.handleFetchAppliedJobs()
+  },
+  beforeMount() {},
 }
 </script>
