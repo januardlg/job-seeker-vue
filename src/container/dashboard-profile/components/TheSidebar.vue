@@ -30,9 +30,9 @@ export default {
           link: 'applied-jobs',
         },
         {
-          icon: 'bi-bookmark',
-          label: 'Favorite Jobs',
-          link: 'favorite-jobs',
+          icon: 'io-settings-outline',
+          label: 'Settings',
+          link: 'settings',
         },
       ],
     }

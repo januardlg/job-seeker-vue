@@ -9,6 +9,7 @@ import AuthPage from '../pages/auth/AuthPage.vue'
 import DashboardPage from '../pages/dashboard-profile/DashboardPage.vue'
 import ProfileOverviewPage from '../pages/dashboard-profile/ProfileOverviewPage.vue'
 import AppliedJobPage from '../pages/dashboard-profile/AppliedJobPage.vue'
+import SettingsPage from '../pages/dashboard-profile/SettingsPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,6 +78,12 @@ const router = createRouter({
           name: 'applied-jobs',
           path: 'applied-jobs',
           component: AppliedJobPage,
+          props: true,
+        },
+        {
+          name: 'settings',
+          path: 'settings',
+          component: SettingsPage,
           props: true,
         },
       ],
