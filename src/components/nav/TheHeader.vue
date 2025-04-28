@@ -8,8 +8,8 @@
               <router-link to="/">Home</router-link>
             </li>
             <li><router-link to="/job/list">Find Job</router-link></li>
-            <li>My Applied Jobs</li>
             <li>Find Employers</li>
+            <li><router-link to="/dashboard/overview">Dashboard</router-link></li>
             <li>Job Alerts</li>
             <li>Customer Supports</li>
           </ul>
