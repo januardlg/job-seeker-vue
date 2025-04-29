@@ -11,6 +11,8 @@ import ProfileOverviewPage from '../pages/dashboard-profile/ProfileOverviewPage.
 import AppliedJobPage from '../pages/dashboard-profile/AppliedJobPage.vue'
 import SettingsPage from '../pages/dashboard-profile/SettingsPage.vue'
 
+import store from '@/store'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior(to, from, savedPosition) {
@@ -67,6 +69,7 @@ const router = createRouter({
       name: 'dashboard',
       path: '/dashboard',
       component: DashboardPage,
+      meta: { needAuth: true },
       children: [
         {
           name: 'overview',
@@ -90,6 +93,18 @@ const router = createRouter({
     },
   ],
   linkActiveClass: 'active',
+})
+
+router.beforeEach(function (to, from, next) {
+  const credentialSignIn = store.getters['auth/getCredentialUser']
+  const isAuthenteicated = credentialSignIn?.token
+
+  if (to.meta.needAuth && !isAuthenteicated) {
+    console.log('Needs auth!')
+    next({ name: 'auth-login' })
+  } else {
+    next()
+  }
 })
 
 export default router
