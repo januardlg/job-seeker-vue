@@ -52,11 +52,11 @@ export default {
   components: { TheButtonVue, TheInputVue, TheInputPasswordVue, TheRoleInputVue },
   data() {
     return {
-      fullName: 'Alex Pastoor',
-      username: 'alex',
-      email: 'usercandidate1@mail.com',
-      password: 'password',
-      confirmPassword: 'password',
+      fullName: undefined,
+      username: undefined,
+      email: undefined,
+      password: undefined,
+      confirmPassword: undefined,
       agreeTnC: false,
       isEnableSubmit: false,
     }

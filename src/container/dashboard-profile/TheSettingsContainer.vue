@@ -4,11 +4,33 @@
     <div class="col-span-2">
       <div class="block space-y-2 cursor-pointer">
         <p>Profile Picture</p>
-        <div class="w-full h-full relative group">
+        <div v-if="profilePhoto" class="w-full h-full relative group">
           <img class="w-[220px] object-cover h-[240px]" alt="Profile" :src="profilePhoto" />
           <div
             class="w-full h-full absolute top-0 bg-gray-300 opacity-80 hidden group-hover:flex cursor-pointer"
           >
+            <div class="flex items-center justify-center h-full w-full p-6 text-center">
+              <label for="upload">
+                <div class="cursor-pointer">
+                  <v-icon name="bi-cloud-upload" class="icon" scale="3" color="#0A65CC" />
+
+                  <p class="font-medium text-lg">Change photo</p>
+                  <p class="text-sm">Max photo size 5 MB</p>
+                  <input
+                    name="profile-picture"
+                    type="file"
+                    id="upload"
+                    style="display: none"
+                    @change="handleUploadProfilePicture"
+                    accept="image/jpeg, image/png, image/jpg"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div v-else>
+          <div class="w-[220px] h-[240px] bg-gray-300 opacity-80 flex cursor-pointer">
             <div class="flex items-center justify-center h-full w-full p-6 text-center">
               <label for="upload">
                 <div class="cursor-pointer">

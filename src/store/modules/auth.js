@@ -211,6 +211,7 @@ export default {
           },
           { root: true },
         )
+        router.replace({ name: 'auth-login' })
       } catch (error) {
         console.log('ERROR', error)
       } finally {
@@ -237,6 +238,9 @@ export default {
   getters: {
     detailUser(state) {
       return state.detailUser
+    },
+    getCredentialUser(state) {
+      return state.credentialSignIn
     },
   },
 }

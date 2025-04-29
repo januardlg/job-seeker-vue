@@ -22,7 +22,7 @@
     </header>
     <div class="py-5 flex items-center justify-between container-custom bg-white">
       <div class="flex items-center space-x-8">
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 cursor-pointer" @click="handleGoToDashboard">
           <v-icon name="fa-suitcase" class="icon" color="#0A65CC" scale="2" />
           <p class="text-2xl font-semibold">Jobseeker</p>
         </div>
@@ -77,6 +77,9 @@ export default {
   methods: {
     handleGoLogin() {
       this.$router.push({ name: 'auth-login' })
+    },
+    handleGoToDashboard() {
+      this.$router.push('/')
     },
   },
 }
