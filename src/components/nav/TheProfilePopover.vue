@@ -16,7 +16,9 @@
         <v-icon name="ri-account-circle-fill" class="icon" color="#0A65CC" scale="2.5" />
         <div>
           <p class="text-lg font-medium">{{ detailUser && detailUser?.fullName }}</p>
-          <p class="capitalize">{{ detailUser && detailUser?.role }}</p>
+          <p class="capitalize">
+            {{ detailUser && detailUser?.title ? detailUser?.title : detailUser?.role }}
+          </p>
         </div>
       </div>
     </li>

@@ -5,7 +5,7 @@
       <div class="block space-y-2 cursor-pointer">
         <p>Profile Picture</p>
         <div class="w-full h-full relative group">
-          <img class="w-full h-full" alt="Profile" :src="profilePhoto" />
+          <img class="w-[220px] object-cover h-[240px]" alt="Profile" :src="profilePhoto" />
           <div
             class="w-full h-full absolute top-0 bg-gray-300 opacity-80 hidden group-hover:flex cursor-pointer"
           >
@@ -33,8 +33,8 @@
     </div>
     <div class="col-span-4 space-y-5">
       <div class="block space-y-2">
-        <div><label for="userName">Username</label></div>
-        <input name="userName" class="input-vue" placeholder="Username" v-model="userName" />
+        <div><label for="username">Username</label></div>
+        <input name="username" class="input-vue" placeholder="Username" v-model="username" />
       </div>
       <div class="block space-y-2">
         <div><label for="fullName">Full Name</label></div>
@@ -68,7 +68,22 @@
         </select>
       </div>
       <div class="block space-y-2">
-        <div><label for="portofolio">Portofolio</label></div>
+        <div><label for="title">Yout Title or Position</label></div>
+        <input
+          name="title"
+          class="input-vue"
+          placeholder="Your title or position"
+          v-model="title"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-10 gap-6 mt-2">
+    <div class="col-span-2"></div>
+    <div class="col-span-8">
+      <div class="block space-y-2">
+        <div><label for="portofolio">Portofolio URL</label></div>
         <input
           name="portofolio"
           class="input-vue"
@@ -91,8 +106,9 @@ export default {
   data() {
     return {
       fullName: '',
-      userName: '',
+      username: '',
       gender: '',
+      title: '',
       education: '',
       experience: '',
       profilePhoto: '',
@@ -107,7 +123,8 @@ export default {
     handleSubmitSave() {
       this.onSubmitSaveChanges({
         fullName: this.fullName,
-        userName: this.userName,
+        username: this.username,
+        title: this.title,
         gender: this.gender,
         education: this.education,
         experience: this.experience,
@@ -129,11 +146,13 @@ export default {
   async created() {
     await this.fetchProfileDetail()
     this.fullName = this?.allProfileDetail?.fullName
-    this.userName = this?.allProfileDetail?.username
+    this.username = this?.allProfileDetail?.username
     this.gender = this?.allProfileDetail?.gender
+    this.title = this?.allProfileDetail?.title
     this.education = this?.allProfileDetail?.education
     this.experience = this?.allProfileDetail?.experience
     this.profilePhoto = this?.allProfileDetail?.profilePhoto
+    this.portofolio = this?.allProfileDetail?.portofolio
   },
   mounted() {},
 }
