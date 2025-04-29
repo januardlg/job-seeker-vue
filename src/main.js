@@ -51,6 +51,8 @@ import {
   RiAccountCircleFill,
   MdCheckcircleRound,
   MdError,
+  IoSettingsOutline,
+  BiCloudUpload,
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -98,6 +100,8 @@ addIcons(
   RiAccountCircleFill,
   MdCheckcircleRound,
   MdError,
+  IoSettingsOutline,
+  BiCloudUpload,
 )
 
 const app = createApp(App)
