@@ -1,5 +1,5 @@
 <template>
-  <div class="container-custom pt-8 pb-[100px]">
+  <div class="container-custom pt-8 bg-white">
     <div class="flex justify-between items-center">
       <div class="flex items-center space-x-6">
         <div class="p-2 bg-[#EDEFF5] rounded-sm">
@@ -174,7 +174,7 @@
       </div>
     </div>
   </div>
-  <div class="pt-[100px] border-t border-[#767F8C] container-custom">
+  <div class="container-custom bg-white">
     <p class="text-[40px] font-medium mb-[50px]">Related Jobs</p>
     <div class="grid grid-cols-3 gap-6">
       <JobCardVue v-for="(job, index) in relatedJobsList" :key="index"></JobCardVue>
@@ -201,7 +201,7 @@ export default {
           label: 'Job Posted:',
           value: this.$store.state.jobs.openedJobDetail.createdAt
             ? new Date(this.$store.state.jobs.openedJobDetail.createdAt * 1000).toLocaleDateString(
-                'en-ZA'
+                'en-ZA',
               )
             : '-',
         },

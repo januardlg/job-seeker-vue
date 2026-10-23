@@ -24,7 +24,7 @@ export default {
   <RouterView> </RouterView>
 
   <!-- <TheHeaderVue />
-  <div class="min-h-screen pb-[100px]">
+  <div class="min-h-screen bg-white">
     <RouterView> </RouterView>
     <TheLoadingOverlayVue v-if="isLoadingOverlay"></TheLoadingOverlayVue>
   </div>
