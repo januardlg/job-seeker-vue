@@ -29,6 +29,26 @@
           >Sign In</TheButtonVue
         >
       </div>
+      <div class="bg-green-200/30 p-4 rounded-md mt-5">
+        <p>
+          email: usercandidate2@mail.com
+          <span
+            class="cursor-pointer text-blue-600"
+            title="Copy email"
+            @click="copyCredential('usercandidate2@mail.com')"
+            >copy</span
+          >
+        </p>
+        <p>
+          password: password
+          <span
+            class="cursor-pointer text-blue-600"
+            title="Copy password"
+            @click="copyCredential('password')"
+            >copy</span
+          >
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -73,6 +93,13 @@ export default {
   methods: {
     handleSubmitLogin() {
       this.$store.dispatch('auth/login', this.inputAccount)
+    },
+    async copyCredential(value) {
+      try {
+        await navigator.clipboard.writeText(value)
+      } catch (error) {
+        console.error('Failed to copy credential', error)
+      }
     },
   },
 }

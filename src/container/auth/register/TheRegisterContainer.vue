@@ -39,6 +39,10 @@
           >Create Account</TheButtonVue
         >
       </div>
+
+      <p class="text-sm text-gray-500 mt-4 text-center p-2 bg-green-200/50">
+        This just form demo validation, login with the provided account instead
+      </p>
     </div>
   </div>
 </template>
@@ -112,13 +116,21 @@ export default {
   watch: {},
   methods: {
     handleSubmitRegister() {
-      this.$store.dispatch('auth/register', {
+      console.log('Register data:', {
         fullName: this.fullName,
         username: this.username,
         email: this.email,
         password: this.password,
         role: 'candidate',
       })
+
+      // this.$store.dispatch('auth/register', {
+      //   fullName: this.fullName,
+      //   username: this.username,
+      //   email: this.email,
+      //   password: this.password,
+      //   role: 'candidate',
+      // })
     },
   },
 }

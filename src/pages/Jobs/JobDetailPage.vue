@@ -1,5 +1,5 @@
 <template>
-  <the-breadcrumb-vue></the-breadcrumb-vue>
+  <the-breadcrumb-vue title="Job Detail"></the-breadcrumb-vue>
   <div>
     <TheJobDetailVue></TheJobDetailVue>
   </div>

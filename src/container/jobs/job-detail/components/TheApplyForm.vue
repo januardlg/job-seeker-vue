@@ -39,7 +39,7 @@
       <div class="mt-6 block space-y-1 text-sm">
         <div><label for="cv" class="font-medium text-[#767F8C]">Cover Letter</label></div>
         <textarea
-          class="textarea w-2xl border-[#e4e5e8] rounded-md text-lg focus:border-[#101828] focus:outline-none"
+          class="textarea w-2xl border-[#e4e5e8] rounded-md text-lg focus:border-[#101828] focus:outline-none bg-white"
           placeholder="Write down your biography here"
           rows="6"
           v-model="coverLetter"

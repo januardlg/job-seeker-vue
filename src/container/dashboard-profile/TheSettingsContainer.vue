@@ -115,7 +115,7 @@
       </div>
     </div>
   </div>
-  <div class="mt-10 flex justify-end">
+  <div class="mt-10 flex justify-end pb-10">
     <the-button-vue @on-click-button="handleSubmitSave">Save Changes</the-button-vue>
   </div>
 </template>

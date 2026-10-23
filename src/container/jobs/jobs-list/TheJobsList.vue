@@ -12,7 +12,7 @@
     ></job-card>
   </div>
 
-  <div class="flex justify-center mt-12">
+  <div v-if="!isLoadingOverlayOpen" class="flex justify-center mt-12">
     <div class="flex space-x-4">
       <input
         class="join-item btn btn-circle"
@@ -89,7 +89,7 @@ export default {
             }).toString(),
           {
             method: 'GET',
-          }
+          },
         )
         const data = await response.json()
         this.listJobDatas = data.data
@@ -101,7 +101,10 @@ export default {
       //   console.log('FETCH')
     },
   },
-  computed: { ...mapState('jobs', ['filterJob', 'searchByInput']) },
+  computed: {
+    ...mapState(['isLoadingOverlayOpen']),
+    ...mapState('jobs', ['filterJob', 'searchByInput']),
+  },
   watch: {
     filterJob: {
       immediate: true, // Fetch data when component is created

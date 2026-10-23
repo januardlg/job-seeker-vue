@@ -1,5 +1,5 @@
 <template>
-  <the-breadcrumb-vue></the-breadcrumb-vue>
+  <the-breadcrumb-vue title="Find Job"></the-breadcrumb-vue>
   <div class="bg-white">
     <div class="pt-8 pb-8 sticky top-[202px] bg-white z-10 container-custom">
       <div

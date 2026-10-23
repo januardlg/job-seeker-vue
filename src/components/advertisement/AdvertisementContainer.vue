@@ -3,11 +3,10 @@
     :class="['h-[290px] bg-no-repeat rounded-xl w-full bg-cover relative']"
     :style="{ backgroundImage: `url(/images/${imageName}.png)` }"
   >
-    <div class="bg-white h-full w-full opacity-45"></div>
     <div class="absolute top-0 w-full p-[50px] h-full flex flex-col justify-between">
-      <div>
-        <p class="text-[32px] font-medium">{{ title }}</p>
-        <p class="mt-4 text-[#636A80]">
+      <div class="">
+        <p class="text-[32px] font-medium text-black">{{ title }}</p>
+        <p class="mt-1 text-black bg-green-200/70 p-3 rounded-xl">
           {{ description }}
         </p>
       </div>

@@ -4,7 +4,7 @@
   </div>
   <ul
     :class="{
-      'dropdown dropdown-open dropdown-end menu rounded-sm bg-base-100 shadow-sm  shadow-[#0A65CC] hover:bg-none active:bg-none':
+      'dropdown dropdown-open dropdown-end menu rounded-sm bg-base-100 shadow-sm  shadow-[#0A65CC] hover:bg-none active:bg-none bg-white':
         isOpenDropdownProfile,
     }"
     popover
@@ -57,5 +57,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
